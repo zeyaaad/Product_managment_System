@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Managment System</title>
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+<style>
+
+    select{
+        text-align: center;
+        width: 100%;
+        padding: 5px 10px;
+    }
+    #title{
+        margin: 10px auto;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0px 0px 13px -8px black;
+        
+    }
+    option {
+        font-size: 15px ;
+        font-weight: bold;
+    }
+    table {
+        box-shadow: 0px 0px 13px -8px black;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #search{
+        width: 80%;
+        padding: 4px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #search input {
+        width: 40%;
+    }
+     #search button {
+        height: fit-content;
+        width: fit-content;
+        padding: 10px;
+     }
+    
+    .cont {
+        width: 95%;
+    }
+    .number{
+        font-weight: bold;
+        font-size: 18px;
+        /* color: rgb(16, 2, 0); */
+    }
+    @media(max-width:900px) {
+        table{  
+            width: 50%;
+
+        }
+        table th{
+            font-size: 13px;
+        }
+        table td {
+            font-size: 13px;
+        }
+        table button {
+            font-size: 10px;
+        }
+    }
+    @media(max-width:430px){
+        .cont{
+            width: 200%;
+        }
+    }
+
+
+/* Light mode styles */
+body {
+    background-color: #ffffff;
+    /* Add other light mode styles */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    color: #ffffff;
+    background-color: #121212;
+}
+body.dark-mode table {
+    color: white;
+    background-color: #121212;
+}
+body.dark-mode input {
+    background-color: #121212;
+    color: white;
+}
+body.dark-mode input::placeholder {
+    color: white;
+}
+body.dark-mode select {
+    background-color: #121212;
+    color: white;
+}
+body.dark-mode select::placeholder {
+    color: white;
+}
+body.dark-mode textarea {
+    background-color: #121212;
+    color: white;
+}
+body.dark-mode textarea::placeholder {
+    color: white;
+}
+@media(max-width:430px) {
+    table {
+        width: 70%;
+        margin-left: 21%;
+        
+    }
+    #search input{
+        width: 33%;
+
+    }
+}
+
+</style>
+<body >
+    <button style=" position: fixed; top: 5px; right: 20px;" id="modeToggle" class="btn btn-secondary">
+        <i id="moden" class="fa-regular fa-moon "></i>
+        <i id="modes" class="fas fa-sun d-none"></i>
+       
+    </button>
+
+    <div class="cont">
+        <div class="w-75 mx-auto py-3">
+        
+            <h3 class="fw-bolder" id="title">Product Managment System</h3>
+        
+            <label for="productNameInput">ProductName :</label>
+            <input placeholder="Start With capital charac and less 4 characs " type="text" oninput="valdationname()" class="form-control mb-3"
+                id="productNameInput">
+        
+            <label for="ProductPriceInput">ProductPrice $ :</label>
+            <input oninput="valdationprace()" type="number" class="form-control mb-3" min="2" max="10" id="productPriceInput">
+        
+            <label for="ProductCategoryInput">ProductCategory :</label>
+            <select  required id="productCategoryInput" class="form-select form-select-lg mb-3 d-block p-10 "
+                aria-label="Large select example">
+                <option selected value="Mobile ">Mobile</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Screen">Screen</option>
+                <option value="PC">PC</option>
+                <option value="Head Phones">Head Phones</option>
+            </select >
+            <label for="ProductDescInput">ProductDesc :</label>
+        
+            <textarea oninput="valdationdes()" required type="text" class="form-control mb-3" id="productDescInput" placeholder="Characets must less than 200 "></textarea>
+            <button id="add" class="btn btn-info">add Product</button>
+            <button id="update" class="btn d-none btn-primary">Update</button>
+        </div>
+        
+        <div id="search" class="w-75 mx-auto p-10 ">
+            <input oninput="search(sinputname.value)" class="form-control mx-auto  mb-3 " type="text" id="searchname"
+                placeholder="Search by Name..">
+                <input oninput="searchbycat(searchcat.value)" class="form-control mx-auto  mb-3 " type="text" id="searchcat"
+                placeholder="Search by Category..">
+                <button  id="deletAll" class="btn btn-primary"> Delete All </button>
+        </div>
+    </div>
+    <table id="table"  class="table  w-75 table  table-hover table-sm  ">
+        <thead>
+            <th>Number</th>
+            <th>ProductName</th>
+            <th>ProductPrice</th>
+            <th>ProductCategory</th>
+            <th>ProductDesc</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead class="table-group-divider">
+        <tbody id="tableBody">
+        
+        </tbody>
+    </table>
+    
+
+
+    <script src="p.js" ></script>
+</body>
+</html>
+
+
+
+
